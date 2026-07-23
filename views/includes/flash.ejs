@@ -1,0 +1,28 @@
+<!-- bcz success is an array and array will exist even if no elements in it thatswhy we used success.length -->
+<% if(success && success.length){ %>
+    <div id="successFlash" class="alert alert-success alert-dismissible fade show col-6 offset-3" role="alert">
+        <%= success %><!--flash called with key=success-->
+        <button type="button" class="btn-close" data-bs-dismiss="alert" area-label="Close"></button>
+    </div>
+<% } %>
+
+<% if(error && error.length){ %>
+    <div id="errorFlash" class="alert alert-danger alert-dismissible fade show col-6 offset-3" role="alert">
+        <%= error %><!--flash called with key=success-->
+        <button type="button" class="btn-close" data-bs-dismiss="alert" area-label="Close"></button>
+    </div>
+<% } %>
+<script>
+    setTimeout(() => {
+        let success = document.getElementById("successFlash");
+        let error = document.getElementById("errorFlash");
+
+        if(success){
+            success.remove();
+        }
+
+        if(error){
+            error.remove();
+        }
+    }, 3000);
+</script>
